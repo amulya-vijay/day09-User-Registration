@@ -1,8 +1,12 @@
 package com.userRegistration;
 
+import java.io.*;
+import java.util.*;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.swing.JPasswordField;
 
 class FirstName{
 	Scanner sc = new Scanner(System.in);
@@ -74,6 +78,29 @@ class MobileNumber{
 	}
 }
 
+class  Password{
+	
+	public String getPassword() {
+		
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		 System.out.println("Enter password: ");
+		 String password = sc.nextLine();
+	     
+		
+		Pattern pattern = Pattern.compile("[A-Za-z0-9]{8,}");
+		Matcher matcher = pattern.matcher(password);
+	
+		if(matcher.find()) {
+			return "password set";
+		}else {
+			return "Invalid Password: Password should coontain atleast 8 characters";
+		}
+		
+	}
+	
+}
+
 public class UserRegistration {
 	public static void main(String[] args) {
 		
@@ -86,8 +113,11 @@ public class UserRegistration {
 	//	EmailId emailid = new EmailId();
 	//  System.out.println("Email Name: "+emailid.getEmailId());
 		
-		MobileNumber mblNum = new MobileNumber();
-		System.out.println("Phone Number: "+mblNum.getmobileNumber());
+	//	MobileNumber mblNum = new MobileNumber();
+	//	System.out.println("Phone Number: "+mblNum.getmobileNumber());
+		
+		Password password = new Password();
+		System.out.println("Password: "+password.getPassword());
 	}
 
 }
