@@ -1,12 +1,10 @@
 package com.userRegistration;
 
-import java.io.*;
-import java.util.*;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.swing.JPasswordField;
 
 class FirstName{
 	Scanner sc = new Scanner(System.in);
@@ -88,13 +86,14 @@ class  Password{
 		 String password = sc.nextLine();
 	     
 		
-		Pattern pattern = Pattern.compile("[A-Za-z0-9]{8,}");
+		Pattern pattern = Pattern.compile("[[A-Z]{1,}[a-z0-9]]{8,}");
 		Matcher matcher = pattern.matcher(password);
 	
 		if(matcher.find()) {
 			return "password set";
 		}else {
-			return "Invalid Password: Password should coontain atleast 8 characters";
+			return "Invalid Password: Password should contain atleast 8 characters"+
+					"with atleast one upper case letter";
 		}
 		
 	}
