@@ -86,14 +86,14 @@ class  Password{
 		 String password = sc.nextLine();
 	     
 		
-		Pattern pattern = Pattern.compile("[[A-Z]{1,}[a-z0-9]]{8,}");
+		Pattern pattern = Pattern.compile("(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]){8,}");
 		Matcher matcher = pattern.matcher(password);
 	
 		if(matcher.find()) {
 			return "password set";
 		}else {
 			return "Invalid Password: Password should contain atleast 8 characters"+
-					"with atleast one upper case letter";
+					" with atleast one upper case letter,one numeric character and one special character.";
 		}
 		
 	}
@@ -109,8 +109,8 @@ public class UserRegistration {
 	//	LastName lName = new LastName();
 	//	System.out.println("Last Name: "+lName.getLastName());
 		
-	//	EmailId emailid = new EmailId();
-	//  System.out.println("Email Name: "+emailid.getEmailId());
+	//	EmailId emailId = new EmailId();
+	//  System.out.println("Email Name: "+emailId.getEmailId());
 		
 	//	MobileNumber mblNum = new MobileNumber();
 	//	System.out.println("Phone Number: "+mblNum.getmobileNumber());
