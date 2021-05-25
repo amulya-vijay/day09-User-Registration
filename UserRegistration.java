@@ -55,6 +55,25 @@ class EmailId{
 	}
 }
 
+class MobileNumber{
+	
+	public String getmobileNumber() {
+		
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Phone Number:");
+		String phoneNum = sc.nextLine();
+		Pattern pattern = Pattern.compile("[91]{2}[: :][6789]{1}[0-9]{9}$");
+		Matcher matcher = pattern.matcher(phoneNum);
+		if(matcher.find()) {
+			return phoneNum;
+		}else {
+			return "Invalid Phone Number: valid format- 91 [10-digit-number]";
+		}
+		
+	}
+}
+
 public class UserRegistration {
 	public static void main(String[] args) {
 		
@@ -64,8 +83,11 @@ public class UserRegistration {
 	//	LastName lName = new LastName();
 	//	System.out.println("Last Name: "+lName.getLastName());
 		
-		EmailId emailid = new EmailId();
-		System.out.println("Email Name: "+emailid.getEmailId());
+	//	EmailId emailid = new EmailId();
+	//  System.out.println("Email Name: "+emailid.getEmailId());
+		
+		MobileNumber mblNum = new MobileNumber();
+		System.out.println("Phone Number: "+mblNum.getmobileNumber());
 	}
 
 }
