@@ -36,14 +36,36 @@ class LastName{
 	}
 }
 
+class EmailId{
+	
+	public String getEmailId() {
+		
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter email address:");
+		String emailId = sc.nextLine();
+		Pattern pattern = Pattern.compile("^[a-z0-9+.-_]+@[a-z.]+[com]$");
+		Matcher matcher = pattern.matcher(emailId);
+		if(matcher.find()) {
+			return emailId;
+		}else {
+			return "Invalid Email ID: valid format- example@domain.com/co";
+		}
+			
+	}
+}
+
 public class UserRegistration {
 	public static void main(String[] args) {
 		
-		FirstName fName = new FirstName();
-		System.out.println("First Name: "+fName.getFirstName());
+	//	FirstName fName = new FirstName();
+	//	System.out.println("First Name: "+fName.getFirstName());
 		
-		LastName lName = new LastName();
-		System.out.println("Last Name: "+lName.getLastName());
+	//	LastName lName = new LastName();
+	//	System.out.println("Last Name: "+lName.getLastName());
+		
+		EmailId emailid = new EmailId();
+		System.out.println("Email Name: "+emailid.getEmailId());
 	}
 
 }
